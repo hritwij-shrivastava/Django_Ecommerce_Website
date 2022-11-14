@@ -1,0 +1,892 @@
+
+{% extends 'admin2/parts/base.html' %}
+    
+    {% block components %}{% endblock components %}
+    {% block pages %}collapsed{% endblock pages %}
+    {% block components-show %}show{% endblock components-show %}
+    {% block home-active %}active{% endblock home-active %}
+    {% block utilities %}collapsed{% endblock utilities %}
+
+    {% block content %}
+    {% load static %}
+
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Home Page</h1>
+        </div>
+
+        <!-- Content Row -->
+        <div class="row">
+
+            <!-- Slider Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4" id="slider-selector">
+                <div class="card border-left-primary shadow h-100 py-2 selector-shadow" >
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Slider
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ slide_count }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Header Text Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4" id="header-selector">
+                <div class="card border-left-success shadow h-100 py-2 selector-shadow">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                    Header Text
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ header_count }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4" id="product-selector">
+                <div class="card border-left-info shadow h-100 py-2 selector-shadow">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                    Product
+                                </div>
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ product_id_count }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upslider Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4" id="upslider-selector">
+                <div class="card border-left-warning shadow h-100 py-2 selector-shadow">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                    UpSlider
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ upSlider_images_count }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logo Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4" id="logo-selector">
+                <div class="card border-left-primary shadow h-100 py-2 selector-shadow">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Logo
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ logo_images_count }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advertisement video Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4" id="ad-selector">
+                <div class="card border-left-success shadow h-100 py-2 selector-shadow">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                    Advertisement Videos
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ ad_video_count }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Insta image Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4" id="insta-selector">
+                <div class="card border-left-info shadow h-100 py-2 selector-shadow">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                    Insta Images
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ insta_images_count }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider Row -->
+
+        <div class="row" style="display: none;" id="slider-row">
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <a style="cursor: pointer;" class="title-header"><h6 class="m-0 font-weight-bold text-primary">Slider</h6></a>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Options:</div>
+                                <a class="dropdown-item adder" >Add Slider</a>
+                                <a class="dropdown-item" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/django-database/home/sliderimages" target="_blank">Edit Slider</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/django-database/home/sliderimages" target="_blank">Delete Slider</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body table-view">
+                        <div class="table-responsive">
+                            <table class="table table-bordered mydataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Date modified</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Date modified</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    {% for slide in slider_images %}
+                                    <tr>
+                                        <td> <img src=" {{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/media/{{ slide.sliderImage }}" alt="" style="max-width: 250px;"> </td>
+                                        <td>{{ slide.date|date:"d-M-Y"  }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Card Body Add -->
+                    <div class="card-body area-view" style="display: none;">
+                        <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 w-100 px-md-2 navbar-search" id='submit-slider-form' method="POST">
+                            {% csrf_token %}
+                            <div class="input-group border-separator">
+                                <div style="width: 250px;">
+                                    <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;" for="slider-img-input">Images:</label>
+                                </div>
+                                <input type="file" class="form-control-file small" style="max-width: 175px;" id="slider-img-input" multiple>
+                                <div id="validationServer04Feedback" class="invalid-feedback" style="width: 310px; margin-left: 20px;">
+                                    
+                                </div>
+                            </div>
+                            <div class="input-group-append input-group-designer">
+                                <button class="btn btn-primary submit-btn-designer" type="submit" id="submit-slider-btn">
+                                    Submit
+                                </button>
+                                <button class="btn btn-outline-primary submit-btn-designer cancel-category-btn" type="button">
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Pie Chart -->
+            <div class="col-xl-4 col-lg-5">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Top Categories</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-pie pt-4 pb-2">
+                            <canvas id="myPieChart"></canvas>
+                        </div>
+                        <div class="mt-4 text-center small">
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-primary"></i> Category 1
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-success"></i> Category 2
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-info"></i> Category 3
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Header Row -->
+
+        <div class="row" style="display: none;" id="header-row">
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <a style="cursor: pointer;" class="title-header"><h6 class="m-0 font-weight-bold text-success">Header Text</h6></a>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Options:</div>
+                                <a class="dropdown-item adder">Add Header Text</a>
+                                <a class="dropdown-item" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/django-database/home/headertext" target="_blank">Edit Header Text</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/django-database/home/headertext" target="_blank">Delete Header Text</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body table-view">
+                        <div class="table-responsive">
+                            <table class="table table-bordered mydataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Number of items</th>
+                                        <th>Date modified</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Number of items</th>
+                                        <th>Date modified</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    {% for htxt in header_text %}
+                                    <tr>
+                                        <td>{{ htxt.title }}</td>
+                                        <td>{{ htxt.desc }}</td>
+                                        <td>{{ htxt.date|date:"d-M-Y"  }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Card Body -->
+                    <div class="card-body area-view" id="addbrndarea" style="display: none;">
+                        <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 w-100 px-md-2 navbar-search" id='submit-header-form' method="POST">
+                        {% csrf_token %}
+                            <div class="input-group border-separator">
+                                <div style="width: 250px;">
+                                    <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;" for="header-title-input">Title:</label>
+                                </div>
+                                <input type="text" class="myborder-design form-control small" id="header-title-input" aria-describedby="basic-addon2" name="header-title">
+                            </div>
+                            <div class="input-group border-separator">
+                                <div style="width: 250px;">
+                                    <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;" for="header-desc-input">Description:</label>
+                                </div>
+                                <input type="text" class="myborder-design form-control small" id="header-desc-input" aria-describedby="basic-addon2" name="header-desc">
+                            </div>
+                            <div class="input-group-append input-group-designer">
+                                <button class="btn btn-primary submit-btn-designer" type="submit" id="submit-brand-btn">
+                                    Submit
+                                </button>
+                                <button class="btn btn-outline-primary submit-btn-designer cancel-category-btn" type="button" >
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Pie Chart -->
+            <div class="col-xl-4 col-lg-5">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Top Categories</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-pie pt-4 pb-2">
+                            <canvas id="myPieChart"></canvas>
+                        </div>
+                        <div class="mt-4 text-center small">
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-primary"></i> Category 1
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-success"></i> Category 2
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-info"></i> Category 3
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Row -->
+
+        <div class="row" style="display: none;" id="product-row">
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <a style="cursor: pointer;" class="title-header"><h6 class="m-0 font-weight-bold text-info">Product</h6></a>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Options:</div>
+                                <a class="dropdown-item adder">Add Product</a>
+                                <a class="dropdown-item" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/django-database/home/productid" target="_blank">Edit Product</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/django-database/home/productid" target="_blank">Delete Product</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body table-view" id="tagstable">
+                        <div class="table-responsive">
+                            <table class="table table-bordered mydataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Product ID</th>
+                                        <th>Date modified</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Product ID</th>
+                                        <th>Date modified</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <tbody>
+                                    {% for pid in product_id %}
+                                    <tr>
+                                        <td>{{ pid.pid }}</td>
+                                        <td>{{ pid.date|date:"d-M-Y"  }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Card Body -->
+                    <div class="card-body area-view" id="addtagsarea" style="display: none;">
+                        <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 w-100 px-md-2 navbar-search" id='product-id-form' method="POST">
+                        {% csrf_token %}
+                            <div class="input-group border-separator">
+                                <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;" for="product-id-input">Product ID:</label>
+                                <input type="text" class="myborder-design form-control small" id="product-id-input" aria-describedby="basic-addon2" name="product-id-input">
+                            </div>
+                            <div class="input-group-append input-group-designer">
+                                <button class="btn btn-primary submit-btn-designer" type="submit" id="product-id-btn">
+                                    Submit
+                                </button>
+                                <button class="btn btn-outline-primary submit-btn-designer cancel-category-btn" type="button">
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Pie Chart -->
+            <div class="col-xl-4 col-lg-5">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Top Categories</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-pie pt-4 pb-2">
+                            <canvas id="myPieChart"></canvas>
+                        </div>
+                        <div class="mt-4 text-center small">
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-primary"></i> Category 1
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-success"></i> Category 2
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-info"></i> Category 3
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>     
+        
+        <!-- Upslider Row -->
+
+        <div class="row" style="display: none;" id="upslider-row">
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <a style="cursor: pointer;" class="title-header"><h6 class="m-0 font-weight-bold text-warning">Upslider</h6></a>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Options:</div>
+                                <a class="dropdown-item adder">Add Upslider</a>
+                                <a class="dropdown-item" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/django-database/home/upsliderimages" target="_blank">Edit Upslider</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/django-database/home/upsliderimages" target="_blank">Delete Upslider</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body table-view">
+                        <div class="table-responsive">
+                            <table class="table table-bordered mydataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Slider Image</th>
+                                        <th>Date modified</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Slider Image</th>
+                                        <th>Date modified</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    {% for upslider in upSlider_images %}
+                                    <tr>
+                                        <td> <img src=" {{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/media/{{ upslider.upsliderImage }}" alt="" style="max-width: 250px;"> </td>
+                                        <td>{{ upslider.date|date:"d-M-Y"  }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Card Body -->
+                    <div class="card-body area-view" id="addproductarea" style="display: none;">
+                        <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 w-100 px-md-2 navbar-search" id='submit-upslider-form' method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                            <div class="input-group border-separator">
+                                <div style="width: 250px;">
+                                    <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;" for="upslider-input">Images:</label>
+                                </div>
+                                <input type="file" class="form-control-file small" style="max-width: 175px;" id="upslider-input" multiple>
+                                <div id="validationServer04Feedback" class="invalid-feedback" style="width: 310px; margin-left: 20px;">
+                                    
+                                </div>
+                            </div>                                        
+                            <div class="input-group-append input-group-designer">
+                                <button class="btn btn-primary submit-btn-designer" type="submit" id="submit-product-btn">
+                                    Submit
+                                </button>
+                                <button class="btn btn-outline-primary submit-btn-designer cancel-category-btn" type="button">
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-5">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Top Categories</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-pie pt-4 pb-2">
+                            <canvas id="myPieChart"></canvas>
+                        </div>
+                        <div class="mt-4 text-center small">
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-primary"></i> Category 1
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-success"></i> Category 2
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-info"></i> Category 3
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logo Row -->
+
+        <div class="row" style="display: none;" id="logo-row">
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <a style="cursor: pointer;" class="title-header"><h6 class="m-0 font-weight-bold text-primary">Logo</h6></a>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Options:</div>
+                                <a class="dropdown-item adder">Add Logo</a>
+                                <a class="dropdown-item" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/django-database/home/logoimages" target="_blank">Edit Logo</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/django-database/home/logoimages" target="_blank">Delete Logo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body table-view" id="brndtable">
+                        <div class="table-responsive">
+                            <table class="table table-bordered mydataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Logo</th>
+                                        <th>Date modified</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Logo</th>
+                                        <th>Date modified</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <tbody>
+                                    {% for logo in logo_images %}
+                                    <tr>
+                                        <td> <img src=" {{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/media/{{ logo.logoImage }}" alt="" style="max-width: 250px;"> </td>
+                                        <td>{{ logo.date|date:"d-M-Y"  }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <!-- Card Body -->
+                    <div class="card-body area-view" id="addproductarea" style="display: none;">
+                        <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 w-100 px-md-2 navbar-search" id='submit-logo-form' method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                            <div class="input-group border-separator">
+                                <div style="width: 250px;">
+                                    <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;" for="logo-input">Images:</label>
+                                </div>
+                                <input type="file" class="form-control-file small" style="max-width: 175px;" id="logo-input" multiple>
+                                <div id="validationServer04Feedback" class="invalid-feedback" style="width: 310px; margin-left: 20px;">
+                                    
+                                </div>
+                            </div>                                        
+                            <div class="input-group-append input-group-designer">
+                                <button class="btn btn-primary submit-btn-designer" type="submit" id="submit-product-btn">
+                                    Submit
+                                </button>
+                                <button class="btn btn-outline-primary submit-btn-designer cancel-category-btn" type="button">
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Pie Chart -->
+            <div class="col-xl-4 col-lg-5">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Top Categories</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-pie pt-4 pb-2">
+                            <canvas id="myPieChart"></canvas>
+                        </div>
+                        <div class="mt-4 text-center small">
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-primary"></i> Category 1
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-success"></i> Category 2
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-info"></i> Category 3
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advertisement Row -->
+
+        <div class="row" style="display: none;" id="ad-row">
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <a style="cursor: pointer;" class="title-header"><h6 class="m-0 font-weight-bold text-success">Advertisement</h6></a>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Options:</div>
+                                <a class="dropdown-item adder">Add advertisement</a>
+                                <a class="dropdown-item" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/django-database/home/advideo" target="_blank">Edit advertisement</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/django-database/home/advideo" target="_blank">Delete advertisement</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body table-view">
+                        <div class="table-responsive">
+                            <table class="table table-bordered mydataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Video</th>
+                                        <th>Date modified</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Video</th>
+                                        <th>Date modified</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <tbody>
+                                    {% for ad in ad_video %}
+                                    <tr>
+                                        <td>{{ ad.url }}</td>
+                                        <td>{{ ad.date|date:"d-M-Y"  }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Card Body -->
+                    <div class="card-body area-view" id="addtagsarea" style="display: none;">
+                        <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 w-100 px-md-2 navbar-search" id='ad-video-form' method="POST">
+                        {% csrf_token %}
+                            <div class="input-group border-separator">
+                                <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;" for="ad-video-input">Video Url:</label>
+                                <input type="text" class="myborder-design form-control small" id="ad-video-input" aria-describedby="basic-addon2" name="brand">
+                            </div>
+                            <div class="input-group-append input-group-designer">
+                                <button class="btn btn-primary submit-btn-designer" type="submit" id="submit-ad-video-btn">
+                                    Submit
+                                </button>
+                                <button class="btn btn-outline-primary submit-btn-designer cancel-category-btn" type="button">
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Pie Chart -->
+            <div class="col-xl-4 col-lg-5">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Top Categories</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-pie pt-4 pb-2">
+                            <canvas id="myPieChart"></canvas>
+                        </div>
+                        <div class="mt-4 text-center small">
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-primary"></i> Category 1
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-success"></i> Category 2
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-info"></i> Category 3
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>     
+        
+        <!-- Insta Image Row -->
+
+        <div class="row" style="display: none;" id="insta-row">
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <a style="cursor: pointer;" class="title-header"><h6 class="m-0 font-weight-bold text-info">Insta Image</h6></a>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Options:</div>
+                                <a class="dropdown-item adder">Add Image</a>
+                                <a class="dropdown-item" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/django-database/home/instaimages" target="_blank">Edit Image</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/django-database/home/instaimages" target="_blank">Delete Image</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body table-view">
+                        <div class="table-responsive">
+                            <table class="table table-bordered mydataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Date modified</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Date modified</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    {% for insta in insta_images %}
+                                    <tr>
+                                        <td> <img src=" {{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/media/{{ insta.instaImage }}" alt="" style="max-height: 100px;"> </td>
+                                        <td>{{ insta.date|date:"d-M-Y"  }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Card Body -->
+                    <div class="card-body area-view" id="addproductarea" style="display: none;">
+                        <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 w-100 px-md-2 navbar-search" id='submit-insta-pic-form' method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                            <div class="input-group border-separator">
+                                <div style="width: 250px;">
+                                    <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;" for="insta-pic-input">Images:</label>
+                                </div>
+                                <input type="file" class="form-control-file small" style="max-width: 175px;" id="insta-pic-input" multiple>
+                                <div id="validationServer04Feedback" class="invalid-feedback" style="width: 310px; margin-left: 20px;">
+                                    
+                                </div>
+                            </div>                                        
+                            <div class="input-group-append input-group-designer">
+                                <button class="btn btn-primary submit-btn-designer" type="submit" id="submit-insta-pic-btn">
+                                    Submit
+                                </button>
+                                <button class="btn btn-outline-primary submit-btn-designer cancel-category-btn" type="button">
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-5">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Top Categories</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-pie pt-4 pb-2">
+                            <canvas id="myPieChart"></canvas>
+                        </div>
+                        <div class="mt-4 text-center small">
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-primary"></i> Category 1
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-success"></i> Category 2
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-info"></i> Category 3
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    
+    {% endblock content %}
+    {% block js %}<script src=" {% static 'admin/js/home.js' %} "></script>{% endblock js %}

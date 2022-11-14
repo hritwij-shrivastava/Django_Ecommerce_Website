@@ -1,0 +1,99 @@
+{% extends 'parts/base.html' %}
+
+    {%block active-product %} active {%endblock active-product %}
+
+    {%block body-color %}style="background-color: #f1f3f6;"{%endblock body-color %}
+    {%block margin-top %}style="margin-top: 0px !important;" {%endblock margin-top %}
+
+	{% block content %}
+	
+		{% load static %}
+            <!-- BEGIN SHOP -->
+            <div class="shop" style="padding-top: 120px; padding-bottom: 35px;">
+                <div class="wrapper mywrapper" style="background-color: white; padding: 30px;">
+                    <div class="shop-content">
+
+                        <!-- BEGIN SHOP ASIDE -->
+                        <div class="shop-aside">
+                            <div class="box-field box-field__search">
+                                <input type="search" class="form-control" placeholder="Search">
+                                <i class="icon-search"></i>
+                            </div>
+                            <div class="shop-aside__item">
+                                <span class="shop-aside__item-title">Categories</span>
+                                <ul>
+                                    {% for ctg in category_data %}
+                                    <li><a id="{{ ctg.category }}">{{ ctg.category }} <span>({{ ctg.category_item_no }})</span></a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- SHOP ASIDE EOF   -->
+
+                        <!-- BEGIN SHOP Main -->
+                        <div class="shop-main">
+                            <div class="shop-main__filter">
+                                <div class="shop-main__checkboxes">
+                                    <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/boysproduct">
+                                        <label class="checkbox-box" id="boyzone">
+                                            <!-- <input type="checkbox"> -->
+                                            <span class="checkmark"></span>
+                                            Boy's Wear
+                                        </label>
+                                    </a>
+                                    <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/girlsproduct">
+                                        <label class="checkbox-box" id="girlzone">
+                                            <!-- <input type="checkbox" checked="checked"> -->
+                                            <span class="checkmark" style="background-color: cadetblue;"></span>
+                                            Girls's Wear
+                                        </label>
+                                    </a>
+                                </div>
+                                {% comment %} 
+                                <div class="shop-main__select">
+                                    <select class="styled">
+                                        <option>From expensive to cheap</option>
+                                        <option>From cheap to expensive</option>
+                                    </select>
+                                </div> 
+                                {% endcomment %}
+                            </div>
+                            <div class="shop-main__items" id="wrap-json-html">
+
+                                
+                            </div>
+
+                            <a id="check_active" ></a>
+                            <a id="last_page" ></a>
+                            <div id="pagination">
+                                {% csrf_token %}
+                               
+                                <ul class="paging-list">
+                                    <div class="paging-list__item paging-prev">
+                                        <a id="-1" class="paging-list__link">
+                                            <i class="icon-arrow"></i>
+                                        </a>
+                                    </div>
+                                    <ul class="paging-list" id="paginator_links">
+                                        
+                                    </ul>
+                                    <div class="paging-list__item paging-next">
+                                        <a id="-10" class="paging-list__link">
+                                            <i class="icon-arrow"></i>
+                                        </a>
+                                    </div>
+                                </ul>
+                                
+                            </div>
+                        </div>
+                        <!-- SHOP MAIN EOF   -->
+                    </div>
+                </div>
+                
+            </div>
+            <!-- SHOP EOF   -->
+    {% endblock content %}
+
+    {% block script %}
+        <script src=" {% static 'asset/js/girlsAllProductList.js' %} "></script>
+    {% endblock script %}

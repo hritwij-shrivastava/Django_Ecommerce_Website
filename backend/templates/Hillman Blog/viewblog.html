@@ -1,0 +1,26 @@
+{% extends 'parts/base.html' %}
+
+    {%block active-blog %}active {%endblock active-blog %}
+    {%block added-css %}
+        {% load static %}
+            <link rel="stylesheet" href=" {% static 'Hillman Blog/blog.css' %} "> 
+    {%endblock added-css %}
+    {%block margin-top %} style="padding: 68px 0 0 0;margin-top: 0px;"{%endblock margin-top %}
+
+    
+{% block content %}
+
+    {% load static %}
+
+    <div id="content">
+        <div class="main-area">
+            <div class="writespace">
+                <div id="area">
+                    {{ post.content|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}

@@ -1,0 +1,184 @@
+{% extends 'parts/base.html' %}
+
+    {%block active-blog %}active {%endblock active-blog %}
+    {%block body-color %}style="background-color: #f1f3f6;"{%endblock body-color %}
+    {%block margin-top %}style="margin-top: 0px !important;" {%endblock margin-top %}
+
+    {%block added-css %} 
+    {% load static %}
+    <link href=" {% static 'Hillman Blog/viewBlog/css/frame.scss.css' %} " rel="stylesheet" type="text/css" media="all">
+    <link href=" {% static 'Hillman Blog/viewBlog/css/style.css' %} " rel="stylesheet" type="text/css" media="all">
+    <link href=" {% static 'Hillman Blog/viewBlog/css/slick.scss' %} " rel="stylesheet" type="text/css" media="all">
+    <link href=" {% static 'Hillman Blog/viewBlog/css/prettyPhoto.css' %} " rel="stylesheet" type="text/css" media="all">
+    <link href=" {% static 'Hillman Blog/viewBlog/css/animate.css' %} " rel="stylesheet" type="text/css" media="all">
+    <link href=" {% static 'Hillman Blog/viewBlog/css/font-all.min.css' %} " rel="stylesheet" type="text/css" media="all">
+    <link href=" {% static 'Hillman Blog/viewBlog/css/slick.scss' %} " rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Poppins:300,300italic,400,500,600,400italic,600italic,700,700italic,800,800italic">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Playfair+Display:300,300italic,400,500,600,400italic,600italic,700,700italic,800,800italic">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Poppins:300,300italic,400,500,600,400italic,600italic,700,700italic,800,800italic">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Playfair+Display:300,300italic,400,500,600,400italic,600italic,700,700italic,800,800italic">
+    <script src=" {% static 'Hillman Blog/viewBlog/css/instagram.js.download' %} " type="text/javascript"></script>
+    <style>
+        .home-sidebar-deals .lof-clock-timer-detail-single li {background:#000000;border:1px solid #000000;color:#000000;}
+    
+    </style>    
+    <script type="text/javascript">
+    $(document).ready(function(){
+        var homeSidedeals = $(".sidebar-deal-products");
+        homeSidedeals.owlCarousel({
+        items:1,
+        loop:false,              
+        dots: false,
+        nav:true,       
+        navContainer: ".home_sidebar--deal-nav",
+        navText: [' <a class="prev btn active"><i class="fa fa-angle-left"></i></a>','<a class="next btn"><i class="fa fa-angle-right"></i></a>'],
+        responsive:{
+            0:{
+            items: 1
+            },
+            600:{
+            items:1
+            },
+            700:{
+            items:1
+            },
+    
+            1000:{
+            items: 1
+            }
+        }
+        });
+    });
+    </script>
+    <style>
+        .blog-model-mansory { margin-bottom:30px;break-inside: avoid;break-inside: avoid-column; page-break-inside: avoid; -webkit-column-break-inside: avoid;}
+        .blog-section .blog_grid_section {-moz-column-count: 2; -webkit-column-count: 2; column-count: 2;  }
+        
+        
+        .blog-post .article .article-content h4 a, .blog-post .comments-count a:hover { color:#231f1e; }
+        .blog-post .article .article-content:hover h4 a { color:#fc4c4b; }
+        .blog-post .article-description { background:rgba(0,0,0,0); }
+        /* .blog-post .article-description:hover { background:; } */
+    
+        .blog-post .article-header .blog-date { color:#000000; }
+        .blog-post .article-header .author { color:#000000; }
+        .blog-post .article-header .comments-count { color:#000000; }
+        .blog-post .blog-tag a, .blog-post .blog-tag, .blog-post .blog-tag i  {color:#000000;} 
+        .blog-post .blog-tag a:hover {color:#231f1e; }
+        .blog-post .article .blog-btn a { color:#ffffff; }
+        .blog-post .article .blog-btn a:hover {   color:#ffffff ;}
+    </style>
+    {%endblock added-css %}
+	{% block content %}
+	
+		{% load static %}
+		
+        <main class=" main-content  ">  
+            <div class="dt-sc-hr-invisible-large"></div>            
+            <div class="wrapper"> 
+                <div class="grid-uniform" style="margin-top: 120px;">
+                    <div class="grid__item">  
+                        <div class="container-bg">
+                            <div class="blog-post">
+                                <div class="blog-post-inner style2">    
+                                    <div class="grid-uniform">    
+                                        <aside class="sidebar mobileToggle left-sidebar grid__item wide--one-quarter post-large--one-quarter large--grid__item" data-sidebar="">
+                                            <div class="close-sidebar">
+                                                <svg aria-hidden="true" data-prefix="fal" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-times fa-w-10 fa-2x"><path fill="currentColor" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" class=""></path></svg>
+                                            </div>
+                                            {% ifequal status 1 %}
+                                            <div id="shopify-section-blog-sidebar-article" class="shopify-section">
+                                                <div class="widget widget_recent_article">
+                                                    <h4>Recent Articles<span class="right"></span></h4>
+                                                    <ul class="recent_article">
+                                                        <li class="article-item">
+                                                            <div class="article-image">
+                                                                <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/blog/{{ blogs.post_id }}/{{latest_1.post_url}}" title=""><img src=" {{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/media/{{ latest_1.thumbnail_img }} " alt="White Wireless Earbud" class="article__image"></a>
+                                                            </div>
+                                                            <div class="article-description">
+                                                                <h6><a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/blog/{{ blogs.post_id }}/{{latest_1.post_url}}">{{ latest_1.title }}</a></h6>
+                                                                <p>{% for words in  five_latest_1%}{{ words }} {% endfor %}...</p>
+                                                            </div>
+                                                        </li>
+                                                        <li class="article-item">
+                                                            <div class="article-image">
+                                                                <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/blog/{{ blogs.post_id }}/{{latest_2.post_url}}" title=""><img src=" {{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/media/{{ latest_2.thumbnail_img }} " alt="Loudest wireless earbuds" class="article__image"></a>
+                                                            </div>
+                                                            <div class="article-description">
+                                                                <h6><a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/blog/{{ blogs.post_id }}/{{latest_2.post_url}}">{{ latest_2.title }}</a></h6>
+                                                                <p>{% for words in  five_latest_2%}{{ words }} {% endfor %}...</p>
+                                                            </div>
+                                                        </li>
+                                                        <li class="article-item">
+                                                            <div class="article-image">
+                                                                <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/blog/{{ blogs.post_id }}/{{latest_3.post_url}}" title=""><img src=" {{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/media/{{ latest_3.thumbnail_img }} " alt="Fun with friends" class="article__image"></a>
+                                                            </div>
+                                                            <div class="article-description">
+                                                                <h6><a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/blog/{{ blogs.post_id }}/{{latest_3.post_url}}">{{ latest_3.title }}</a></h6>
+                                                                <p>{% for words in  five_latest_3%}{{ words }} {% endfor %}...</p>
+                                                            </div>
+                                                        </li>  
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            {% endifequal %}
+                                        </aside>  
+
+                                        <div class="grid__item grid__item wide--three-quarters post-large--three-quarters">  
+                                            <div id="shopify-section-blog" class="shopify-section">
+                                                <div class="blog-section">
+                                                    <div class="grid-uniform">
+                                                        <div class="blog_grid_section">
+                                                            {% for blogs in blog_post %}
+                                                            <!-- Article Description area Start -->                                                           
+                                                            <div class="article-item grid__item blog-model-mansory ">
+                                                                <div class="article">
+                                                                    <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/blog/{{ blogs.post_id }}/{{blogs.post_url}}" title="">
+                                                                        <div class="article-image">
+                                                                            <img src=" {{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/media/{{ blogs.thumbnail_img }} " alt="White Wireless Earbud" class="article__image">                                                                        
+                                                                        </div>
+                                                                    </a>
+                                                                    <div class="article-description">  
+                                                                        <div class="article-content">				
+                                                                            <h4><a href="">{{ blogs.title }}</a></h4>
+                                                                            <div class="article-header">
+                                                                                <p class="blog-date">
+                                                                                    <i class="far fa-calendar"></i> 
+                                                                                    <span data-datetime="2020-08-04">
+                                                                                        <span class="date">{{ blogs.date }}</span>
+                                                                                    </span>             
+                                                                                </p>
+                                                                            </div> 
+                                                                            <p> {{ blogs.simple_post|safe }}</p>
+                                                                            <div class="blog-btn">
+                                                                                <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/blog/{{ blogs.post_id }}/{{blogs.post_url}}" class="link_text" style="text-decoration: underline !important;color: blue;">Read more</a>
+                                                                            </div>    
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Article Description area End -->
+                                                            {% endfor %}
+                                                        </div>
+                                                        {% comment %} <div class="text-center">
+                                                            <ul class="pagination-blog text-center">
+                                                                <li class="disabled"><span class="fas fa-angle-left"></span></li>
+                                                                <li class="active"><span>1</span></li>
+                                                                <li><a href="https://boom-theme.myshopify.com/blogs/news?page=2" title="">2</a></li>
+                                                                <li><a class="enable-arrow" href="https://boom-theme.myshopify.com/blogs/news?page=2" title="Next »"><span class="fas fa-angle-right"></span></a></li>
+                                                            </ul>
+                                                        </div> {% endcomment %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>      
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                </div> 
+            </div>
+            <div class="dt-sc-hr-invisible-large"></div>  
+        </main>  
+	{% endblock content %}

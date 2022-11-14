@@ -1,0 +1,76 @@
+{% extends 'parts/base.html' %}
+
+{%block active-product %} active {%endblock active-product %}
+
+    {%block body-color %}style="background-color: #f1f3f6;"{%endblock body-color %}
+    {%block margin-top %}style="margin-top: 0px !important;" {%endblock margin-top %}
+
+	{% block content %}
+	
+		{% load static %}
+            <!-- BEGIN PRODUCT -->
+            <div class="product" style="padding-top: 120px; padding-bottom: 35px;">
+                <div class="wrapper mywrapper" style="background-color: white; padding: 30px;">
+                    <div class="product-content">
+                        <div class="product-slider">
+                            <div class="product-slider__main">
+                                <div class="product-slider__main-item">
+                                    <img src=" {{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/media/{{ boys_data.product_img }} " alt="product">
+                                </div>
+                                {% for file in boys_opt_img %}
+                                <div class="product-slider__main-item">
+                                    <img src=" {{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/media/{{ file.product_opt_img }} " alt="product">
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <div class="product-slider__nav">
+                                <div class="product-slider__nav-item">
+                                    <img src=" {{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/media/{{ boys_data.product_img }} " alt="product">
+                                </div>
+                                {% for file in boys_opt_img %}
+                                <div class="product-slider__nav-item">
+                                    <img src=" {{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/media/{{ file.product_opt_img }} " alt="product">
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <div style="width: 165px;height: 100px;float: right;">
+                                <!-- <img src=" {% static 'asset/Logo/10.png'  %} " alt="product"> -->
+                                <img src=" {{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/media/{{ boys_data.product_brand.brand_img }} " alt="product">
+                            </div>
+                            <h3>{{ boys_data.product_category }}</h3>
+                            <span class="product-price">#{{ boys_data.product_id }}</span>
+                            <span class="product-stock" style="text-transform: none;color: #222222;font-size: 20px;margin-top: 10px;">{{ boys_data.product_name }}</span>
+                            {%if list_len != 0 %}
+                            <div class="product-stock" style="text-transform: none;color: #222222;font-size: 20px;margin-top: 10px;">
+                                <span>Size: </span>
+                                <ul class="size-ul">
+                                    {% for size in size_list %}
+                                    <li class="size-li"><a class="size-box">{{ size }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {%endif %}
+                                <div class="product-options" style="margin-top: 0px;padding-top: 10px;border: none;">
+                                    <div class="product-info__color">
+                                        <span style="font-size: 20px;margin-bottom: 15px;">Сolor:</span>
+                                        <div id="color-list-display" class="{{ product_code }}">
+                                            {% csrf_token %}
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                           </div>
+                    </div>
+                   
+                </div>
+            </div>
+            <!-- PRODUCT EOF   -->
+
+    {% endblock content %}
+    
+    {% block script %}
+    <script src=" {% static 'asset/js/boysProductDetail.js' %} "></script>
+    <script src=" {% static 'js/slick.min.js' %} "></script>
+{% endblock script %}

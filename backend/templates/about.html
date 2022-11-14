@@ -1,0 +1,105 @@
+{% extends 'parts/base.html' %}
+
+    {%block active-aboutus %} active {%endblock active-aboutus %}
+
+    {% block carousel %}
+
+    {% include 'parts/about-carousel.html'  %} 
+
+    {% endblock carousel %}
+
+	{% block content %}
+	
+		{% load static %}
+            <!-- BEGIN PROMO VIDEO -->
+            <section class="promo-video">
+                <div class="wrapper">
+                    <div class="trending-top">
+						<span class="saint-text" style="color: #d0312d;">Promotion video</span>
+                        {% for htxt in about_header_text %}
+						<h2>{{ htxt.title }}</h2>
+						<p>{{ htxt.desc }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="promo-video__block">
+                        <img src=" {% static 'asset/user_img/insta-pics/7.jpg' %} "  class="js-img" alt="">
+                        <iframe allowfullscreen id="largeyoutube"></iframe>
+                        <div class="info-blocks__item-img-overlay">
+                            <!-- <span>Promotion video</span> -->
+                            <div class="info-blocks__item-img-play">
+                                <img src=" {% static 'img/play-btn.png' %} "  class="js-img" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="promo-video__nums">
+                    {% for cd in company_data %}
+                        <div class="promo-video__num">
+                            <span data-count="2300">{{ cd.data1 }}</span>
+                            <h5>{{ cd.title_data1 }}</h5>
+                        </div>
+                        <div class="promo-video__num">
+                            <span>{{ cd.data2 }}</span>
+                            <h5>{{ cd.title_data2 }}</h5>
+                        </div>
+                        <div class="promo-video__num">
+                            <span>{{ cd.data3 }}</span>
+                            <h5>{{ cd.title_data3 }}</h5>
+                        </div>
+                        <div class="promo-video__num">
+                            <span>{{ cd.data4 }}</span>
+                            <h5>{{ cd.title_data4 }}</h5>
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+            </section>
+            <!-- PROMO VIDEO EOF   -->
+
+            <!-- About Section -->
+            <div class="leader-area col-md-9 col-lg-9" style="margin-bottom: 100px;">
+                <div class="row">			
+                {% for vi in vision_data %}
+                    <div class="col-md-12 col-lg-12">
+                        <img src=" {{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/media/{{ vi.visionImage }} "style="width: 100%;" alt="">
+                    </div>
+                    <div class="col-md-12 col-lg-12" style="text-align: center;margin-bottom: 85px;">
+                        <h2 class="pt-30 header-h2">Our Vision</h2>
+                        <p>{{ vi.vision_desc }}</p>
+                    </div>
+                {% endfor %}
+                </div>
+                <div class="leader-header">
+                    <h2 class="pt-30" style="text-align: center;">Our Leadership</h2>
+                </div>
+                <div class="pt-60 pt-xs-60 ">
+                {% for ls in leadership_data %}
+                    <div class="row mb-60 bottom__brdr pb-40 leaderareaclass">
+                        <div class="col-md-3 col-lg-3 no-padding t_cell text-center">
+                            <img src=" {{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/media/{{ ls.leaderImage }}" alt="">
+                        </div>
+                        <div class="col-md-9 col-lg-9 no-padding t_cell">
+                            <div class="partner__content">
+                                <h3>{{ ls.leader_name }}</h3>
+                                <span class="career_sub-title">{{ ls.leader_designation }}</span>
+                                <p>{{ ls.leader_desc }} </p>
+                                <a href="{{ ls.leader_social_media }}" class="abt__link"> About Me <i class="fa fa-chevron-circle-right abt__link-arrow" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>		
+                {% endfor %}              
+                </div>
+            </div>
+			<!-- About Section End-->
+
+			
+	{% endblock content %}
+
+	{% block insta-content %}
+	
+		{% include 'parts/insta.html'  %}
+
+	{% endblock insta-content %}
+
+    {% block script %}
+		<script src=" {% static 'asset/js/about.js' %} "></script>
+	{% endblock script %}

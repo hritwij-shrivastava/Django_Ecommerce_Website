@@ -1,0 +1,44 @@
+#category-selector{
+    cursor: pointer;
+}
+#brand-selector{
+    cursor: pointer;
+}
+#tags-selector{
+    cursor: pointer;
+}
+#product-selector{
+    cursor: pointer;
+}
+.myborder-design{
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+}
+.border-separator{
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+}
+.input-group-designer{
+    padding: 8px 14px;
+    margin-top: 30px;
+    border-radius: 4px;
+}
+
+.submit-btn-designer{
+    float: right;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.loader-animate{
+    position: fixed;
+    background-image: url(../img/loader2.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    width: 100%;
+    height: 100vh;
+    z-index: 1100;    
+}
+.loader-hide{
+    display: none;
+}

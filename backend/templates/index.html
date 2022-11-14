@@ -1,0 +1,555 @@
+{% extends 'parts/base.html' %}
+
+	{%block active-home %}active {%endblock active-home %}
+	{%block added-css %}
+		{% load static %}
+		<link rel="stylesheet" href=" {% static 'css/Home.chunk.css' %} " as="style">
+		<link rel="stylesheet" href=" {% static 'css/Browse.chunk.css' %} " as="style">
+		<link rel="stylesheet" href=" {% static 'css/Wrapper.chunk.css' %} " as="style">
+		<link rel="stylesheet" href=" {% static 'css/app.chunk.css' %} " as="style">
+	{%endblock added-css %}
+
+
+
+	{% block carousel %}
+
+		{% include 'parts/carousel.html'  %} 
+
+	{% endblock carousel %}
+
+
+	{% block content %}
+	
+		{% load static %}
+		<!-- BEGIN MAIN BLOCK -->
+		<!-- MAIN BLOCK EOF -->
+		<!-- BEGIN TRENDING -->
+		<section class="trending" style="background-color: white;">		
+			<section class="arrivals">
+				<div class="trending-top">
+					{% for text in headerText%}
+					<h2> {{ text.title }}</h2>
+					<p>{{ text.desc }}</p>
+					{% endfor %}
+				</div>
+			</section>
+			<div class="trending-content">
+				<div class="trending-top">
+					{% comment %} <img src=" {% static 'asset/Logo/10.png' %} " alt="" style="width: 550px;"> {% endcomment %}
+					<h2 class="serve-txt">Serving Since 1948</h2>
+				</div>
+			</div>
+		</section>
+		<!-- TRENDING EOF   -->
+
+
+
+
+		<!-- BEGIN Women Product -->
+		<div class="_1AtVbE col-12-12" style="padding: 0px 0px 10px;margin-top: 10px;margin-bottom: 10px;">
+			<div class="_3E8aIl KdL3Vb">
+				<div class="_2N81D7">
+					<div>
+						<h2 class="_2cAig-">Women Products</h2>
+						<div class="_30kJiF">
+							<a class="_2KpZ6l _3dESVI" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/womenproduct">VIEW ALL</a>
+						</div>
+					</div>
+					{% comment %} <h3 class="rYiIcX">Devices &amp; Accessories</h3> {% endcomment %}
+				</div>
+				<div class="_1oHPGm" data-tracking-id="Best of Electronics" data-tkid="M_88d5bc37-f6d8-4f7e-ac8e-6407a3c71d0b_11">
+					<div class="_3ZYowz _2CfYpZ">
+						<div class="mYI3GX">
+							<div class="_2hKRMr _2CfYpZ" style="width: 1570px;">
+								<div class="_37K3-p" style="transform: translateX(0px);">
+
+									<!-- product start  -->
+									<section class="arrivals">
+										<div class="box-tab-cont">
+											<div class="tab-cont" id="trending-tab_1">
+												<div class="products-items js-products-items">
+													{% for img in women_product %}
+													<a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/womenproduct-description/{{ img.product_unique_id }}" class="products-item women-item">
+														<div class="products-item__type">
+														</div>
+														<div class="products-item__img product-fit-index">
+															<img src=" {{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/media/{{ img.product_img }} " class="js-img" alt="">
+															<div class="products-item__hover">
+																<i class="icon-search"></i>
+																<div class="products-item__hover-options">
+																</div>
+															</div>
+														</div>
+														<div class="products-item__info">
+															<span class="products-item__name">{{ img.product_name }}</span>
+														</div>
+													</a>
+													{% endfor %}
+												</div>
+											</div>
+										</div>
+									</section>
+									<!-- product End  -->
+
+								</div>
+							</div>
+							<div class="_35l9rN rek5UH _1tKnHb women-prev">
+								<div class="_2kgArB _3y7w9p">
+									<svg width="14.6" height="24" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="">
+										<path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" fill="#fff" class="_23HYg_"></path>
+									</svg>
+								</div>
+							</div>
+							<div class="_35l9rN _31Mq1b women-next">
+								<div class="_2kgArB _2CP_Bu w">
+									<svg width="14.6" height="24" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="_1xtBwk">
+										<path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" fill="#fff" class="_23HYg_"></path>
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					
+				</div>
+			</div>
+		</div>
+
+		
+
+
+		<!-- BEGIN Men Product -->
+		<div class="_1AtVbE col-12-12" style="padding: 0px 0px 10px;margin-top: 10px;margin-bottom: 10px;">
+			<div class="_3E8aIl KdL3Vb">
+				<div class="_2N81D7">
+					<div>
+						<h2 class="_2cAig-">Men Products</h2>
+						<div class="_30kJiF">
+							<a class="_2KpZ6l _3dESVI" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/menproduct">VIEW ALL</a>
+						</div>
+					</div>
+					{% comment %} <h3 class="rYiIcX">Devices &amp; Accessories</h3> {% endcomment %}
+				</div>
+				<div class="_1oHPGm" data-tracking-id="Best of Electronics" data-tkid="M_88d5bc37-f6d8-4f7e-ac8e-6407a3c71d0b_11">
+					<div class="_3ZYowz _2CfYpZ">
+						<div class="mYI3GX">
+							<div class="_2hKRMr _2CfYpZ" style="width: 1570px;">
+								<div class="_37K3-p" style="transform: translateX(0px);">
+
+									<!-- product start  -->
+									<section class="arrivals">
+										<div class="box-tab-cont">
+											<div class="tab-cont" id="trending-tab_1">
+												<div class="products-items js-products-items">
+													{% for img in men_product %}
+													<a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/menproduct-description/{{ img.product_unique_id }}" class="products-item men-item" >
+														<div class="products-item__type">
+														</div>
+														<div class="products-item__img product-fit-index">
+															<img src=" {{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/media/{{ img.product_img }} " class="js-img" alt="">
+															<div class="products-item__hover">
+																<i class="icon-search"></i>
+																<div class="products-item__hover-options">
+																</div>
+															</div>
+														</div>
+														<div class="products-item__info">
+															<span class="products-item__name">{{ img.product_name }}</span>
+														</div>
+													</a>
+													{% endfor %}
+												</div>
+											</div>
+										</div>
+									</section>
+									<!-- product End  -->
+
+								</div>
+							</div>
+							<div class="_35l9rN rek5UH _1tKnHb men-prev">
+								<div class="_2kgArB _3y7w9p">
+									<svg width="14.6" height="24" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="">
+										<path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" fill="#fff" class="_23HYg_"></path>
+									</svg>
+								</div>
+							</div>
+							<div class="_35l9rN _31Mq1b men-next">
+								<div class="_2kgArB _2CP_Bu w">
+									<svg width="14.6" height="24" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="_1xtBwk">
+										<path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" fill="#fff" class="_23HYg_"></path>
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					
+				</div>
+			</div>
+		</div>
+
+		
+		
+		<!-- BEGIN Girl Kid Product -->
+		<div class="_1AtVbE col-12-12" style="padding: 0px 0px 10px;margin-top: 10px;margin-bottom: 10px;">
+			<div class="_3E8aIl KdL3Vb">
+				<div class="_2N81D7">
+					<div>
+						<h2 class="_2cAig-">Girls Products</h2>
+						<div class="_30kJiF">
+							<a class="_2KpZ6l _3dESVI" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/girlsproduct">VIEW ALL</a>
+						</div>
+					</div>
+					{% comment %} <h3 class="rYiIcX">Devices &amp; Accessories</h3> {% endcomment %}
+				</div>
+				<div class="_1oHPGm" data-tracking-id="Best of Electronics" data-tkid="M_88d5bc37-f6d8-4f7e-ac8e-6407a3c71d0b_11">
+					<div class="_3ZYowz _2CfYpZ">
+						<div class="mYI3GX">
+							<div class="_2hKRMr _2CfYpZ" style="width: 1570px;">
+								<div class="_37K3-p" style="transform: translateX(0px);">
+
+									<!-- product start  -->
+									<section class="arrivals">
+										<div class="box-tab-cont">
+											<div class="tab-cont" id="trending-tab_1">
+												<div class="products-items js-products-items">
+													{% for img in girlkid_product %}
+													<a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/girlsproduct-description/{{ img.product_unique_id }}" class="products-item girls-item">
+														<div class="products-item__type">
+														</div>
+														<div class="products-item__img product-fit-index">
+															<img src=" {{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/media/{{ img.product_img }} " class="js-img" alt="">
+															<div class="products-item__hover">
+																<i class="icon-search"></i>
+																<div class="products-item__hover-options">
+																</div>
+															</div>
+														</div>
+														<div class="products-item__info">
+															<span class="products-item__name">{{ img.product_name }}</span>
+														</div>
+													</a>
+													{% endfor %}
+												</div>
+											</div>
+										</div>
+									</section>
+									<!-- product End  -->
+
+								</div>
+							</div>
+							<div class="_35l9rN rek5UH _1tKnHb girls-prev">
+								<div class="_2kgArB _3y7w9p">
+									<svg width="14.6" height="24" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="">
+										<path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" fill="#fff" class="_23HYg_"></path>
+									</svg>
+								</div>
+							</div>
+							<div class="_35l9rN _31Mq1b girls-next">
+								<div class="_2kgArB _2CP_Bu w">
+									<svg width="14.6" height="24" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="_1xtBwk">
+										<path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" fill="#fff" class="_23HYg_"></path>
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+
+		<!-- BEGIN Boy Kid Product -->
+		<div class="_1AtVbE col-12-12" style="padding: 0px 0px 10px;margin-top: 10px;margin-bottom: 10px;">
+			<div class="_3E8aIl KdL3Vb">
+				<div class="_2N81D7">
+					<div>
+						<h2 class="_2cAig-">Boys Products</h2>
+						<div class="_30kJiF">
+							<a class="_2KpZ6l _3dESVI" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/boysproduct">VIEW ALL</a>
+						</div>
+					</div>
+					{% comment %} <h3 class="rYiIcX">Devices &amp; Accessories</h3> {% endcomment %}
+				</div>
+				<div class="_1oHPGm" data-tracking-id="Best of Electronics" data-tkid="M_88d5bc37-f6d8-4f7e-ac8e-6407a3c71d0b_11">
+					<div class="_3ZYowz _2CfYpZ">
+						<div class="mYI3GX">
+							<div class="_2hKRMr _2CfYpZ" style="width: 1570px;">
+								<div class="_37K3-p" style="transform: translateX(0px);">
+
+									<!-- product start  -->
+									<section class="arrivals">
+										<div class="box-tab-cont">
+											<div class="tab-cont" id="trending-tab_1">
+												<div class="products-items js-products-items">
+													{% for img in boykid_product %}
+													<a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/menproduct-description/{{ img.product_unique_id }}" class="products-item boys-item">
+														<div class="products-item__type">
+														</div>
+														<div class="products-item__img product-fit-index">
+															<img src=" {{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/media/{{ img.product_img }} " class="js-img" alt="">
+															<div class="products-item__hover">
+																<i class="icon-search"></i>
+																<div class="products-item__hover-options">
+																</div>
+															</div>
+														</div>
+														<div class="products-item__info">
+															<span class="products-item__name">{{ img.product_name }}</span>
+														</div>
+													</a>
+													{% endfor %}
+												</div>
+											</div>
+										</div>
+									</section>
+									<!-- product End  -->
+
+								</div>
+							</div>
+							<div class="_35l9rN rek5UH _1tKnHb boys-prev">
+								<div class="_2kgArB _3y7w9p">
+									<svg width="14.6" height="24" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="">
+										<path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" fill="#fff" class="_23HYg_"></path>
+									</svg>
+								</div>
+							</div>
+							<div class="_35l9rN _31Mq1b boys-next">
+								<div class="_2kgArB _2CP_Bu w">
+									<svg width="14.6" height="24" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="_1xtBwk">
+										<path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" fill="#fff" class="_23HYg_"></path>
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					
+				</div>
+			</div>
+		</div>
+
+		
+
+		{% block upcarousel %}
+
+		{% include 'parts/upcarousel.html'  %} 
+
+		{% endblock upcarousel %}
+
+
+		{% comment %} <!-- BEGIN LOGOS -->
+		<div class="mycategory1" style="margin-top: 10px; background-color: white;">
+			<div class="category-area">
+				<ul class="nav-tab-list tabs">
+					<li class="active" style="margin: 0 auto;">
+						<a href="#trending-tab_1" style="background: #000; border-color: #000;">TOP CATEGORIES</a>
+					</li>
+				</ul>
+			</div>
+			
+		</div>
+		
+		<!-- LOGOS EOF   --> {% endcomment %}
+		<!-- BEGIN Women Product -->
+
+		<div class="_1AtVbE col-12-12" style="padding: 0px 0px 10px;margin-top: 10px;margin-bottom: 10px;">
+			<div class="_3E8aIl KdL3Vb">
+				<div class="_2N81D7">
+					<div>
+						<h2 class="_2cAig-">Our Brands</h2>
+						<div class="_30kJiF">
+							<a class="_2KpZ6l _3dESVI" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/womenproduct">VIEW ALL</a>
+						</div>
+					</div>
+					{% comment %} <h3 class="rYiIcX">Devices &amp; Accessories</h3> {% endcomment %}
+				</div>
+				<div class="_1oHPGm" data-tracking-id="Best of Electronics" data-tkid="M_88d5bc37-f6d8-4f7e-ac8e-6407a3c71d0b_11">
+					<div class="_3ZYowz _2CfYpZ">
+						<div class="mYI3GX">
+							<div class="_2hKRMr _2CfYpZ" style="width: 1570px;">
+								<div class="_37K3-p" style="transform: translateX(0px);">
+
+									<!-- Grid row -->
+									<div class="main-logos">
+										<div class="brandlogo-container logo-item">
+											<img src=" {% static 'asset/Logo/1.png' %} " class="js-img" style="width: 155px; height: auto;" alt="">
+										</div>
+										<div class="brandlogo-container logo-item">
+											<img src=" {% static 'asset/Logo/2.png' %} " class="js-img" style="width: 139px; height: auto;" alt="">
+										</div>
+										
+										<div class="brandlogo-container logo-item">
+											<img src=" {% static 'asset/Logo/3.png' %} " class="js-img" style="width: 130.25px; height: auto;" alt="">
+										</div>
+										
+										<div class="brandlogo-container logo-item">
+											<img src=" {% static 'asset/Logo/4.png' %} " class="js-img" style="width: 109px; height: auto;" alt="">
+										</div>
+										<div class="brandlogo-container logo-item">
+											<img src=" {% static 'asset/Logo/5.png' %} " class="js-img" style="width: 155px; height: auto;" alt="">
+										</div>
+										<div class="brandlogo-container logo-item">
+											<img src=" {% static 'asset/Logo/6.png' %} " class="js-img" style="width: 161px; height: auto;" alt="">
+										</div>
+										
+										<div class="brandlogo-container logo-item">
+											<img src=" {% static 'asset/Logo/7.png' %} " class="js-img" style="width: 161px; height: auto;" alt="">
+										</div>
+										
+										<div class="brandlogo-container logo-item">
+											<img src=" {% static 'asset/Logo/8.png' %} " class="js-img" style="width: 132.625px; height: auto;" alt="">
+										</div>
+									</div>
+									<!-- Grid row -->
+
+								</div>
+							</div>
+							<div class="_35l9rN rek5UH _1tKnHb logo-prev">
+								<div class="_2kgArB _3y7w9p">
+									<svg width="14.6" height="24" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="">
+										<path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" fill="#fff" class="_23HYg_"></path>
+									</svg>
+								</div>
+							</div>
+							<div class="_35l9rN _31Mq1b logo-next">
+								<div class="_2kgArB _2CP_Bu w">
+									<svg width="14.6" height="24" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="_1xtBwk">
+										<path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" fill="#fff" class="_23HYg_"></path>
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					
+				</div>
+			</div>
+		</div>
+
+		<!-- NEW ARRIVALS EOF   -->
+
+		<div class="info-blocks" style="margin-top: 10px; background-color: white;">
+			<div class="info-blocks__item info-blocks__item-reverse js-img" src="" style="background-color: white;">
+				<div class="wrapper">
+					<div class="info-blocks__item-text">
+						<span class="saint-text" style="color: #222222;">About Us</span>
+						<h2>Who we are</h2>
+						<span class="info-blocks__item-descr">Hillman Hosiery Mills is one of the top Hosiery Manufacturers in Kolkata</span>
+						<p>Hillman Hosiery Mills Pvt. Ltd. has made a name for itself in the list of top
+							suppliers of Ladies Bra Panties ,Mens Boxer in India. We offer supreme quality of Ladies Bra
+							And Panty Set etc.</p>
+						<a class="info-blocks__item-link">
+							<i class="icon-video"></i>
+							Watch video about us
+							<i class="icon-arrow-lg"></i>
+						</a>
+					</div>
+					<div class="info-blocks__item-img">
+						<img src=" {% static 'asset/user_img/insta-pics/7.jpg' %} " src="data:image/gif;base64,R0lGODlhAQABAAAAACw="	class="js-img" alt="">
+						<iframe allowfullscreen id="largeyoutube"></iframe>
+						<div class="info-blocks__item-img-overlay">
+							<div class="info-blocks__item-img-play">
+								<img src=" {% static 'img/play-btn.png' %} " class="js-img" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{% comment %} <!-- youtube videos link start -->
+					
+		<div class="mycategory" style="margin-top: 10px; background-color: white;">
+			<div class="category-area">
+				<ul class="nav-tab-list tabs">
+					<li class="active">
+						<a href="#trending-tab_1" style="background:#000; border-color:#000;">Advertisement Videos</a>
+					</li>
+				</ul>
+			</div>
+			
+		</div>
+		
+		<!-- youtube videos link end --> {% endcomment %}
+
+		<!-- BEGIN Women Product -->
+
+		<div class="_1AtVbE col-12-12" style="padding: 0px 0px 10px;margin-top: 10px;margin-bottom: 10px;">
+			<div class="_3E8aIl KdL3Vb">
+				<div class="_2N81D7">
+					<div>
+						<h2 class="_2cAig-">Advertisement Videos</h2>
+						{% comment %} <div class="_30kJiF">
+							<a class="_2KpZ6l _3dESVI" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/product">VIEW ALL</a>
+						</div> {% endcomment %}
+					</div>
+					{% comment %} <h3 class="rYiIcX">Devices &amp; Accessories</h3> {% endcomment %}
+				</div>
+				<div class="_1oHPGm" data-tracking-id="Best of Electronics" data-tkid="M_88d5bc37-f6d8-4f7e-ac8e-6407a3c71d0b_11">
+					<div class="_3ZYowz _2CfYpZ">
+						<div class="mYI3GX">
+							<div class="_2hKRMr _2CfYpZ" style="width: 1570px;">
+								<div class="_37K3-p" style="transform: translateX(0px);">
+
+									<!-- Grid row -->
+									<div class="row youtubelink">
+										
+										<!-- Grid column -->
+										{%for ad in Ad_Video%}
+										<div class="col-lg-4 col-md-6 ad-item">
+											<!--Modal: Name-->
+											<div class="modal-body mb-0 p-0">
+												<div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+													<iframe width="560" height="315" src="{{ ad.url }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+												</div>
+											</div>
+										</div> 
+										{%endfor %}
+										<!-- Grid column -->
+										
+									</div>
+									<!-- Grid row -->
+
+								</div>
+							</div>
+							<div class="_35l9rN rek5UH _1tKnHb ad-prev">
+								<div class="_2kgArB _3y7w9p">
+									<svg width="14.6" height="24" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="">
+										<path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" fill="#fff" class="_23HYg_"></path>
+									</svg>
+								</div>
+							</div>
+							<div class="_35l9rN _31Mq1b ad-next">
+								<div class="_2kgArB _2CP_Bu w">
+									<svg width="14.6" height="24" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="_1xtBwk">
+										<path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" fill="#fff" class="_23HYg_"></path>
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					
+				</div>
+			</div>
+		</div>
+
+		<!-- NEW ARRIVALS EOF   -->
+
+
+
+
+	{% endblock content %}
+
+	{% block insta-content %}
+	
+		{% include 'parts/insta.html'  %}
+
+	{% endblock insta-content %}
+		
+		{% block script %}
+			<script src=" {% static 'asset/js/index.js' %} "></script>
+			<script src=" {% static 'asset/js/myImageSlider.js' %} "></script>
+		{% endblock script %}

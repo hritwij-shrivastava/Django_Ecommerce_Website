@@ -1,0 +1,14 @@
+{% load static %}
+<div class="upslider">
+    <div class="section-container">
+        {% for img in UpSlider_Images %}
+        <div class="upslider_img section" style="background-image: url( {{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/media/{{ img.upsliderImage }} );"></div>
+        {% endfor %}
+    </div>
+    {% comment %} <div class="slider-indicator">
+        <div class="slider-indicator-container">
+            <div class="dot dot1 active"></div>
+            <div class="dot dot2"></div>
+        </div>
+    </div> {% endcomment %}
+</div>

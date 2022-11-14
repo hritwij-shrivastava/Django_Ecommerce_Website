@@ -1,0 +1,615 @@
+
+
+{% extends 'admin2/parts/base.html' %}
+    
+{% block components %}collapsed{% endblock components %}
+{% block pages %}collapsed{% endblock pages %}
+{% block utilities-show %}show{% endblock utilities-show %}
+{% block girl-active %}active{% endblock girl-active %}
+
+{% block content %}
+    {% load static %}
+    
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Girl Kid's Products</h1>
+        </div>
+
+        <!-- Content Row -->
+        <div class="row">
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4" id="category-selector">
+                <div class="card border-left-primary shadow h-100 py-2 selector-shadow" >
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Category
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ ctg_no }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4" id="brand-selector">
+                <div class="card border-left-success shadow h-100 py-2 selector-shadow">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                    Brand
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ bnd_no }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4" id="tags-selector">
+                <div class="card border-left-info shadow h-100 py-2 selector-shadow">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                    Tags
+                                </div>
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ tag_no }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pending Requests Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4" id="product-selector">
+                <div class="card border-left-warning shadow h-100 py-2 selector-shadow">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                    Products
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ woman_no }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Row -->
+
+        <div class="row" id="category-row">
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <a style="cursor: pointer;" class="title-header"><h6 class="m-0 font-weight-bold text-primary">Category</h6></a>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Options:</div>
+                                <a class="dropdown-item adder" id="addctg">Add Category</a>
+                                <a class="dropdown-item" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/django-database/girlKidsProduct/girlcategorytable" target="_blank">Edit Category</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/django-database/girlKidsProduct/girlcategorytable" target="_blank">Delete Category</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body table-view" id="ctgtable">
+                        <div class="table-responsive">
+                            <table class="table table-bordered mydataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Number of items</th>
+                                        <th>Date modified</th>
+                                        <!-- <th>Select</th> -->
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Number of items</th>
+                                        <th>Date modified</th>
+                                        <!-- <th>Select</th> -->
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    {% for ctg in category_data %}
+                                    <tr>
+                                        <td>{{ ctg.category }}</td>
+                                        <td>{{ ctg.category_item_no }}</td>
+                                        <td>{{ ctg.date|date:"d-M-Y"  }}</td>
+                                        <!-- <th><input type="checkbox" name="select" id="" class="product-list"></th> -->
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Card Body Add -->
+                    <div class="card-body area-view" id="addctgarea" style="display: none;">
+                        <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 w-100 px-md-2 navbar-search" id='submit-category-form' method="POST">
+                        {% csrf_token %}
+                            <div class="input-group border-separator">
+                                <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;" for="category-text-input">Category Name:</label>
+                                <input type="text" class="myborder-design form-control small" id="category-text-input" aria-describedby="basic-addon2" name="category">
+                            </div>
+                            <div class="input-group-append input-group-designer">
+                                <button class="btn btn-primary submit-btn-designer" type="submit" id="submit-category-btn">
+                                    Submit
+                                </button>
+                                <button class="btn btn-outline-primary submit-btn-designer cancel-category-btn" type="button" >
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Pie Chart -->
+            <div class="col-xl-4 col-lg-5">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Top Categories</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-pie pt-4 pb-2">
+                            <canvas id="myPieChart"></canvas>
+                        </div>
+                        <div class="mt-4 text-center small">
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-primary"></i> Category 1
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-success"></i> Category 2
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-info"></i> Category 3
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Brand Row -->
+
+        <div class="row" style="display: none;" id="brand-row">
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <a style="cursor: pointer;" class="title-header"><h6 class="m-0 font-weight-bold text-success">Brand</h6></a>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Options:</div>
+                                <a class="dropdown-item adder" id="addbrnd">Add Brand</a>
+                                <a class="dropdown-item" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/django-database/girlKidsProduct/girlbrandtable" target="_blank">Edit Brand</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/django-database/girlKidsProduct/girlbrandtable" target="_blank">Delete Brand</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body table-view" id="brndtable">
+                        <div class="table-responsive">
+                            <table class="table table-bordered mydataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Brand Image</th>
+                                        <th>Number of items</th>
+                                        <th>Date modified</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Brand Image</th>
+                                        <th>Number of items</th>
+                                        <th>Date modified</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    {% for bnd in brand_data %}
+                                    <tr>
+                                        <td>{{ bnd.brand }}</td>
+                                        <td> <img src=" {{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/media/{{ bnd.brand_img }}" alt="" style="max-width: 150px;"> </td>
+                                        <td>{{ bnd.brand_item_no }}</td>
+                                        <td>{{ bnd.date|date:"d-M-Y"  }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Card Body -->
+                    <div class="card-body area-view" id="addbrndarea" style="display: none;">
+                        <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 w-100 px-md-2 navbar-search" id='submit-brand-form' method="POST">
+                        {% csrf_token %}
+                            <div class="input-group border-separator">
+                                <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;" for="brand-text-input">Brand Name:</label>
+                                <input type="text" class="myborder-design form-control small" id="brand-text-input" aria-describedby="basic-addon2" name="brand">
+                            </div>
+                            <div class="input-group border-separator">
+                                <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;" for="brand-img-input">Brand Image:</label>
+                                <input type="file" class="form-control-file small" style="max-width: 400px;" id="brand-img-input">
+                            </div>
+                            <div class="input-group-append input-group-designer">
+                                <button class="btn btn-primary submit-btn-designer" type="submit" id="submit-brand-btn">
+                                    Submit
+                                </button>
+                                <button class="btn btn-outline-primary submit-btn-designer cancel-category-btn" type="button" >
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Pie Chart -->
+            <div class="col-xl-4 col-lg-5">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Top Categories</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-pie pt-4 pb-2">
+                            <canvas id="myPieChart"></canvas>
+                        </div>
+                        <div class="mt-4 text-center small">
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-primary"></i> Category 1
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-success"></i> Category 2
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-info"></i> Category 3
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tags Row -->
+
+        <div class="row" style="display: none;" id="tags-row">
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <a style="cursor: pointer;" class="title-header"><h6 class="m-0 font-weight-bold text-info">Tags</h6></a>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Options:</div>
+                                <a class="dropdown-item adder">Add Tags</a>
+                                <a class="dropdown-item" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/django-database/girlKidsProduct/girltagstable" target="_blank">Edit Tags</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/django-database/girlKidsProduct/girltagstable" target="_blank">Delete Tags</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body table-view" id="tagstable">
+                        <div class="table-responsive">
+                            <table class="table table-bordered mydataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Number of items</th>
+                                        <th>Date modified</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Number of items</th>
+                                        <th>Date modified</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    {% for tag in tags_data %}
+                                    <tr>
+                                        <td>{{ tag.tags }}</td>
+                                        <td>{{ tag.tags_no_item }}</td>
+                                        <td>{{ tag.date|date:"d-M-Y"  }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Card Body -->
+                    <div class="card-body area-view" id="addtagsarea" style="display: none;">
+                        <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 w-100 px-md-2 navbar-search" id='submit-tags-form' method="POST">
+                        {% csrf_token %}
+                            <div class="input-group border-separator">
+                                <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;" for="tags-text-input">Tag Name:</label>
+                                <input type="text" class="myborder-design form-control small" id="tags-text-input" aria-describedby="basic-addon2" name="brand">
+                            </div>
+                            <div class="input-group-append input-group-designer">
+                                <button class="btn btn-primary submit-btn-designer" type="submit" id="submit-tags-btn">
+                                    Submit
+                                </button>
+                                <button class="btn btn-outline-primary submit-btn-designer cancel-category-btn" type="button">
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Pie Chart -->
+            <div class="col-xl-4 col-lg-5">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Top Categories</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-pie pt-4 pb-2">
+                            <canvas id="myPieChart"></canvas>
+                        </div>
+                        <div class="mt-4 text-center small">
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-primary"></i> Category 1
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-success"></i> Category 2
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-info"></i> Category 3
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>     
+        
+        <!-- Product Row -->
+
+    <div class="row" style="display: none;" id="product-row">
+        <!-- Area Chart -->
+        <div class="col-xl-12 col-lg-7">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <a style="cursor: pointer;" class="title-header"><h6 class="m-0 font-weight-bold text-warning">Product</h6></a>
+                    <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                            <div class="dropdown-header">Options:</div>
+                            <a class="dropdown-item adder">Add Product</a>
+                            <a class="dropdown-item" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/django-database/girlKidsProduct/girlproducttable" target="_blank">Edit Product</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/django-database/girlKidsProduct/girlproducttable" target="_blank">Delete Product</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body table-view" id="producttable">
+                    <div class="table-responsive">
+                        <table class="table table-bordered mydataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Product Unique Code</th>
+                                    <th>Product Image</th>
+                                    <th>Product Name</th>
+                                    <th>Product ID</th>
+                                    <th>Category</th>
+                                    <th>Brand</th>
+                                    <th>Size</th>
+                                    <th>Related Images</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Product Unique Code</th>
+                                    <th>Product Image</th>
+                                    <th>Product Name</th>
+                                    <th>Product ID</th>
+                                    <th>Category</th>
+                                    <th>Brand</th>
+                                    <th>Size</th>
+                                    <th>Related Images</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                {% for wp in woman_data %}
+                                <tr>
+                                    <td>{{ wp.product_unique_id }}</td>
+                                    <td> <img src=" {{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/media/{{ wp.product_img }}" alt="" style="max-height: 100px;"> </td>
+                                    <td>{{ wp.product_name }}</td>
+                                    <td>{{ wp.product_id }}</td>
+                                    <td>{{ wp.product_category }}</td>
+                                    <td>{{ wp.product_brand }}</td>
+                                    <td>{{ wp.product_size }}</td>
+                                    <td>{{ wp.product_img_no }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Card Body -->
+                <div class="card-body area-view" id="addproductarea" style="display: none;">
+                    <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 w-100 px-md-2 navbar-search" id='submit-product-form' method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <div class="input-group border-separator">
+                            <div style="width: 250px;">
+                                <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;" for="tags-name-input">Product Name:</label>
+                            </div>
+                            <input type="text" class="myborder-design form-control small" style="max-width: 400px;" id="product-name-input" aria-describedby="basic-addon2" name="name" required>
+                        </div>
+                        <div class="input-group border-separator">
+                            <div style="width: 250px;">
+                                <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;" for="product-id-input">Product ID:</label>
+                            </div>
+                            <input type="text" class="myborder-design form-control small" style="max-width: 400px;" id="product-id-input" aria-describedby="basic-addon2" name="brand" required>
+                        </div>
+                        <div class="input-group border-separator">
+                            <div style="width: 250px;">
+                                <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;" for="product-ctg-input">Category:</label>
+                            </div>
+                            <select class="myborder-design form-control small" style="max-width: 400px;" id="product-ctg-input" required>
+                                <option selected></option>
+                                {% for ctg in category_data %}
+                                <option>{{ ctg.category }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="input-group border-separator">
+                            <div style="width: 250px;">
+                                <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;" for="product-brand-input">Brand:</label>
+                            </div>
+                            <select class="myborder-design form-control small" style="max-width: 400px;" id="product-brand-input">
+                                <option selected></option>
+                                {% for bnd in brand_data %}
+                                <option>{{ bnd.brand }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="input-group border-separator">
+                            <div style="width: 250px;">
+                                <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;" for="product-tags-input">Tag:</label>
+                            </div>
+                            <select class="myborder-design form-control small" style="max-width: 400px;" id="product-tags-input">
+                                <option selected></option>
+                                {% for tag in tags_data %}
+                                <option>{{ tag.tags }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        
+                        <div class="input-group border-separator">
+                            <div style="width: 250px;">
+                                <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;">Size:</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input ads_Checkbox" type="checkbox" id="inlineCheckbox1" value="S">
+                                <label class="form-check-label" for="inlineCheckbox1">S</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input ads_Checkbox" type="checkbox" id="inlineCheckbox2" value="M">
+                                <label class="form-check-label" for="inlineCheckbox2">M</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input ads_Checkbox" type="checkbox" id="inlineCheckbox3" value="L">
+                                <label class="form-check-label" for="inlineCheckbox3">L</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input ads_Checkbox" type="checkbox" id="inlineCheckbox4" value="XL">
+                                <label class="form-check-label" for="inlineCheckbox4">XL</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input ads_Checkbox" type="checkbox" id="inlineCheckbox5" value="XXL">
+                                <label class="form-check-label" for="inlineCheckbox5">XXL</label>
+                            </div>
+                        </div>
+                        <div class="input-group border-separator">
+                            <div style="width: 250px;">
+                                <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;" for="product-spec-input">Specification:</label>
+                            </div>
+                            <input type="text" class="myborder-design form-control small" style="max-width: 400px;" id="product-spec-input" aria-describedby="basic-addon2" name="spec">
+                        </div>
+                        <div class="input-group border-separator">
+                            <div style="width: 250px;">
+                                <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;" for="product-desc-input">Color:</label>
+                            </div>
+                            <textarea class="myborder-design form-control small" style="max-width: 400px;" id="product-desc-input" rows="3"></textarea>
+                        </div>
+                        <div class="input-group border-separator">
+                            <div style="width: 250px;">
+                                <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;" for="product-img-input">Product Image:</label>
+                            </div>
+                            <input type="file" class="form-control-file small" style="max-width: 400px;" id="product-img-input">
+                        </div>
+                        <div class="input-group border-separator">
+                            <div style="width: 250px;">
+                                <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;" for="product-img-no-input">Number of Demo Images:</label>
+                            </div>
+                            <input type="number" class="myborder-design form-control small" style="max-width: 400px;" id="product-img-no-input" min="0" max="15" value="0" aria-describedby="validationServer03Feedback">
+                            <div id="validationServer03Feedback" class="invalid-feedback" style="width: 241px; margin-left: 20px;">
+                                Please enter a number between 0 to 15.
+                            </div>
+                        </div>
+                        <div class="input-group border-separator">
+                            <div style="width: 250px;">
+                                <label style="float: left;margin-right: 50px;font-weight: 500;color: #333;" for="product-opt-img-input">Optional Images:</label>
+                            </div>
+                            <input type="file" class="form-control-file small" style="max-width: 175px;" id="product-opt-img-input" multiple>
+                            <div id="validationServer04Feedback" class="invalid-feedback" style="width: 310px; margin-left: 20px;">
+                                
+                            </div>
+                        </div>
+                        <div class="input-group-append input-group-designer">
+                            <button class="btn btn-primary submit-btn-designer" type="submit" id="submit-product-btn">
+                                Submit
+                            </button>
+                            <button class="btn btn-outline-primary submit-btn-designer cancel-category-btn" type="button">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+            
+{% endblock content %}
+{% block js %}<script src=" {% static 'admin/js/girlkid.js' %} "></script>{% endblock js %}

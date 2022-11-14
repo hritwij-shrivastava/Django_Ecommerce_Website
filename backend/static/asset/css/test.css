@@ -1,0 +1,21 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.action-area {
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+.below {
+    background-color: white;
+    position: relative;
+    width: 100%;
+}
+img{
+    max-height: 500px;
+}
